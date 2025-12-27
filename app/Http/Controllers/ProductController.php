@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductsRequest;
 use App\Models\Products;
-use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -14,7 +14,13 @@ class ProductController extends Controller
     }
     public static function create(){
         return inertia('products/create', [
-            'products' => [], // llamo a TODOS los productos (mala práctica para producción por la sobrecarga de recursos, pero está hecho con fines académicos)
+            'products' => new Products() 
         ]);
+    }
+    public static function store(ProductsRequest $request){
+        $validated = $request->validated();
+        Products::create($validated);
+
+        return redirect()->route('products.index');
     }
 }
