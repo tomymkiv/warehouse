@@ -11,4 +11,5 @@ class Products extends Model
     use HasFactory;
     protected $fillable = ['name', 'description', 'stock', 'price'];
     // campos que puedo modificar en un formulario (asignacion masiva)
+
 }
