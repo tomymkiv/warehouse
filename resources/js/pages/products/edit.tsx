@@ -46,6 +46,7 @@ export default function Edit({product}: {product: Product}) {
             <div className="w-8/12 p-4">
                 <form onSubmit={handleUpdate} method='post' className='space-y-4'>
                     <div className="gap-3 flex flex-col">
+                        <label htmlFor="name">Product name</label>
                         {
                             errors.name && (
                                 <p className='text-red-500 font-[500] text-sm'>{errors.name}</p>
@@ -54,7 +55,7 @@ export default function Edit({product}: {product: Product}) {
                         <Input type='text' id='name' placeholder='Product name' value={data.name} onChange={e => setData('name', e.target.value)} />
                     </div>
                     <div className="gap-3 flex flex-col">
-
+                        <label htmlFor="stock">Product stock</label>
                         {
                             errors.stock && (
                                 <p className='text-red-500 font-[500] text-sm'>{errors.stock}</p>
@@ -64,16 +65,17 @@ export default function Edit({product}: {product: Product}) {
                             onChange={e => setData('stock', Number(e.target.value))} />
                     </div>
                     <div className="gap-3 flex flex-col">
-
+                        <label htmlFor="price">Product price</label>
                         {
                             errors.price && (
                                 <p className='text-red-500 font-[500] text-sm'>{errors.price}</p>
                             )
                         }
-                        <Input type='number' placeholder='Product price' value={data.price}
+                        <Input type='number' id='price' placeholder='Product price' value={data.price}
                             onChange={e => setData('price', Number(e.target.value))} />
                     </div>
                     <div className="gap-3 flex flex-col">
+                        <label htmlFor="description">Product description</label>
                         {
                             errors.description && (
                                 <p className='text-red-500 font-[500] text-sm'>{errors.description}</p>
